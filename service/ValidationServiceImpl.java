@@ -2,6 +2,7 @@ package com.epam.passwordvalidator.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.epam.passwordvalidator.controller.ValidationController;
@@ -10,6 +11,9 @@ import com.epam.passwordvalidator.model.ValidationResult;
 
 @Component
 public class ValidationServiceImpl implements ValidationService {
+	
+	@Autowired
+	ValidationRule  validationRule;
 
 	static Logger logger = LoggerFactory.getLogger(ValidationController.class);
 	@Override
@@ -19,6 +23,8 @@ public class ValidationServiceImpl implements ValidationService {
 		
 		
 		ValidationResult result =new ValidationResult();
+		
+		
 		
 		result.setValid(true);
 		
